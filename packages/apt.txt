@@ -1,0 +1,16 @@
+bash-completion
+bat
+ca-certificates
+curl
+direnv
+fd-find
+fzf
+git
+tar
+tmux
+unzip
+zip
+zoxide
+zsh
+zsh-autosuggestions
+zsh-syntax-highlighting
