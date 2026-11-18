@@ -172,11 +172,13 @@ tmux new -s main
 
 The shared alias `tm` runs `tmux new -s main`. If the session already exists, reattach with `tmux attach -t main`.
 
-Use **Ctrl+B**, then **D** to detach without closing the session. Reattach with `tmux attach -t main`, or list sessions with `tmux ls`. After **Ctrl+B**, press **%** to split left/right, **"** to split top/bottom, or **C** to create a window.
+The tmux prefix is **Ctrl+Q**. Press **Ctrl+Q**, then **D** to detach, **H** to split left/right, **V** to split top/bottom, or **C** to create a window. Navigate between panes directly with **Alt+Arrow**, without the prefix. Reattach with `tmux attach -t main`, or list sessions with `tmux ls`.
+
+If the terminal intercepts Ctrl+Q for software flow control, run `stty -ixon` in the terminal before starting tmux.
 
 The versioned `config/tmux/.tmux.conf` loads [tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect), installed under `~/.tmux/plugins/tmux-resurrect` without requiring a plugin manager. tmux does not start automatically when opening a shell.
 
-Press **Ctrl+B**, then **Ctrl+S** to save sessions, windows, pane layouts, and working directories. Press **Ctrl+B**, then **Ctrl+R** to restore. Saves remain local under `~/.tmux/resurrect`, outside this repository. No automatic save/restore is enabled. Pane text capture is disabled; saved metadata can still contain command arguments, so treat snapshots as private. Restoring is not a process-memory snapshot; only supported programs are restarted.
+Press **Ctrl+Q**, then **Ctrl+S** to save sessions, windows, pane layouts, and working directories. Press **Ctrl+Q**, then **Ctrl+R** to restore. Saves remain local under `~/.tmux/resurrect`, outside this repository. No automatic save/restore is enabled. Pane text capture is disabled; saved metadata can still contain command arguments, so treat snapshots as private. Restoring is not a process-memory snapshot; only supported programs are restarted.
 
 If tmux was already running when configuration changed, run `tmux source-file ~/.tmux.conf` inside it.
 
